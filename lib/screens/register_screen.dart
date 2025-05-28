@@ -58,7 +58,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       final userModel = UserModel(
         id: user.uid.hashCode,
         email: user.email,
-        name: Name(firstname: user.displayName ?? 'User', lastname: ''),
+        name: Name(
+          firstname: user.displayName ?? user.email!.split('@')[0],
+          lastname: '',
+        ),
         address: Address(city: 'N/A', street: 'N/A', number: 0, zipcode: 'N/A'),
         phone: 'N/A',
       );
